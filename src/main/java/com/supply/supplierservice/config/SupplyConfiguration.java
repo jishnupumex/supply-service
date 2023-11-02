@@ -9,12 +9,12 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class SupplyConfiguration {
 
-    @Value("UserOrder")
-    private String topicJsonName;
+    @Value("${spring.kafka.topic.name.topic1}")
+    private String topicInventory;
 
     @Bean
-    public NewTopic JsonTopic(){
-        return TopicBuilder.name(topicJsonName)
+    public NewTopic UserOrderTopic(){
+        return TopicBuilder.name(topicInventory)
                 .build();
     }
 }
