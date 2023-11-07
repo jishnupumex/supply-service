@@ -17,4 +17,13 @@ public class SupplyConfiguration {
         return TopicBuilder.name(topicInventory)
                 .build();
     }
+
+    @Value("${spring.kafka.topic.name.topic2}")
+    private String topicStockUpdate;
+
+    @Bean
+    public NewTopic OrderUpdateTopic(){
+        return TopicBuilder.name(topicStockUpdate)
+                .build();
+    }
 }

@@ -15,12 +15,12 @@ public class SupplierService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    @KafkaListener(topics = "ExternalOrder", groupId = "supplier-group")
+    @KafkaListener(topics = "${spring.kafka.topic.name.topic1}", groupId = "${spring.kafka.consumer.group-id.topic1}")
     public void consumeSupplierRequest(String message) {
     if (message.contains("Order more")) {
         int prodQtyToAdd = 5;
         String stockUpdateMessage = "Stock added " + prodQtyToAdd;
-        kafkaTemplate.send("stock-update", stockUpdateMessage);
+        kafkaTemplate.send("${spring.kafka.topic.name.topic2}", stockUpdateMessage);
         }
     }
 }
