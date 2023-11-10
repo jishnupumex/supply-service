@@ -1,16 +1,21 @@
 package com.supply.supplierservice.controller;
 
 import com.supply.supplierservice.service.SupplierService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/restapi")
-public class SupplierController {
-    SupplierService kafkaListner;
+import java.util.List;
 
-    @GetMapping
-    public String getMessage(){
-        return ("Supply Service Endpoint");
-    }
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/restapi/supplier")
+public class SupplierController {
+
+    private final SupplierService supplierService;
+
+//    @PostMapping
+//    public void fulfil(@RequestBody List<UserOrders> orders) {
+////         supplierService.fulfil(orders);
+//    }
 
 }
